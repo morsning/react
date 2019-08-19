@@ -4,12 +4,16 @@ class Search extends React.Component {
     
     state = {searchTerm: ''}
     
+    onFormSubmit(event) {
+        alert("hej");
+    }
+
     render() {
         
         return (
             <div>
                 <p>{this.state.searchTerm}</p>
-                <form>
+                <form onSubmit={this.onFormSubmit}>
                     <input 
                         type="text" 
                         value={this.state.searchTerm}
