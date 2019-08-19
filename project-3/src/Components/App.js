@@ -4,13 +4,23 @@ import Search from './Search'
 import { Nav } from './Nav'
 
 class App extends React.Component {
+    state = {
+        categorySelected : 0
+    }
+    
+    onCategoryChange = selectedCat => {
+        console.log("selected category: " + selectedCat)
+        this.setState({
+            categorySelected : selectedCat
+        })
+    }
     
     render() {
         return (
             <div>
                 <Router>
                     <div>
-                        <Nav />
+                        <Nav selectedCat={this.state.categorySelected} onSelect={this.onCategoryChange}/>
                         <Route exact path="/" component={Home} />
                         <Route path="/about" component={About} />
                         <Route path="/search" component={SearchPage} />
@@ -32,6 +42,7 @@ function About() {
 function SearchPage() {
     return (
         <div>
+            <h2>Search</h2>
             <Search />
         </div>
     );
