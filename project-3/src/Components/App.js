@@ -7,7 +7,7 @@ class App extends React.Component {
         return (
             <Router>
                 <div>
-                    <Route path="/" component={Home} />
+                    <Route exact path="/" component={Home} />
                     <Route path="/about" component={About} />
                     <Route path="/search" component={Search} />
                 </div>
