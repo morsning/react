@@ -2,16 +2,19 @@ import React from 'react';
 
 class Search extends React.Component {
     
-    somethingElse = event => {
-        console.log(event.target.value)
-    }
-
+    state = {searchTerm: ''}
+    
     render() {
         
         return (
             <div>
+                <p>{this.state.searchTerm}</p>
                 <form>
-                    <input type="text" onChange={this.somethingElse}/>
+                    <input 
+                        type="text" 
+                        value={this.state.searchTerm}
+                        onChange={e => this.setState({searchTerm: e.target.value})}
+                    />
                 </form>
             </div>
         );
