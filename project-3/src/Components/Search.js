@@ -6,7 +6,7 @@ class Search extends React.Component {
     
     onFormSubmit(event) {
         event.preventDefault();
-        alert("hej");
+        console.log(this.state.searchTerm);
     }
 
     render() {
