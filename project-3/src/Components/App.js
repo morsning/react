@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
+import axios from 'axios';
 import Search from './Search'
 import { Nav } from './Nav'
 
 class App extends React.Component {
     state = {
-        categorySelected : 0
+        categorySelected : 0,
+        beers: []
     }
     
     onCategoryChange = selectedCat => {
@@ -14,12 +16,21 @@ class App extends React.Component {
             categorySelected : selectedCat
         })
     }
+
+    getDataFromAPI = queryString => {
+        axios.get(`https://api.punkapi.com/v2/beers${queryString}`)
+        .then(res => {
+        console.log(res.data);
+        //this.setState({beers: res.data});
+      })
+    }
     
     render() {
         return (
             <div>
                 <Router>
                     <div>
+                        {this.getDataFromAPI('?beer_name=Trashy')}
                         <Nav selectedCat={this.state.categorySelected} onSelect={this.onCategoryChange}/>
                         <Route exact path="/" component={Home} />
                         <Route path="/about" component={About} />
