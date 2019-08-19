@@ -4,7 +4,7 @@ class Search extends React.Component {
     
     state = {searchTerm: ''}
     
-    onFormSubmit(event) {
+    onFormSubmit = (event) => {
         event.preventDefault();
         console.log(this.state.searchTerm);
     }
