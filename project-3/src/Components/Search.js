@@ -7,13 +7,14 @@ class Search extends React.Component {
     onFormSubmit(event) {
         event.preventDefault();
         console.log(this.state.searchTerm);
+        this.props.onSearch(this.state.searchTerm)
     }
 
     render() {
         
         return (
             <div>
-                <p>{this.state.searchTerm}</p>
+                <p>Try the search terms king or punk and press enter</p>
                 <form onSubmit={event => this.onFormSubmit(event)}>
                     <input 
                         type="text" 
