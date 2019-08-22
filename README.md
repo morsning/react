@@ -28,7 +28,9 @@ As a minimal requirement you are expected to understand the basics of the concep
 
 ### React
 
-* JSX - basic syntax and usage
+* To start labbing after we have created a new project with create-react-app we remove all the files generated within the folder src, we then add a new file naming it index.html
+* In our index.js we import the react as well as the react-dom libraries, we create a componet and call the react-dom render function passing in our component as well as where we want to render our application. Our project has a folder called public which contains index.html, this file has an element with id: root, this is the element we want to select as the place where our application gets rendered.
+* JSX - basic syntax and usage - similar to HTML (not the same) for instance to add a class attribute to an element we use the attribute className instead of just class. This is due to the fact that class is a reserved word in JS.
 * We create components to divide our application into smaller parts each responsible of rendering some part of our GUI and handeling user input relevant for that piece of markup
 * We can create functional as well as class-based components. 
 * We typically use a functional component for small components which do not utilize component level state. With a class-based component we have the possibility to initialize component level state.
@@ -47,6 +49,7 @@ As a minimal requirement you are expected to understand the basics of the concep
 
 ## Lecture 2
 
+* The JSX returned from a 
 * Array as well as Object destructuring are frequently seen and used in any React project, a typical use would be to break out the individual keys of the props-object specified in a components funktion definition. 
 * We can use the library material-ui to get get some functionality and styling for free when designing our app.
 * The library Axios is often used in order to send requests from our application.
@@ -61,6 +64,7 @@ As a minimal requirement you are expected to understand the basics of the concep
 Typically used when rendering out list items from some array of data.
 * Passing data from a child to a parent can be achieved through defining a function in the parent which will function as a callback function. This function is passed into the component as a prop and invoked within the child component giving us access to the result in the Parent component.
 * We use event handlers to run functionality upon user interaction.
+* When we style a element inline we pass in a JSON containing the css rules we which to apply, when the css-property is a two word property for instance background-color we remove the dash and camelsase it, so backgroundColor instead of the ordinary background-color.
 
 ## Lecture 3
 
