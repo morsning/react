@@ -4,6 +4,8 @@ import axios from 'axios';
 import Search from './Search'
 import { Nav } from './Nav'
 import { ListResources } from './ListResources';
+import { Home } from './Home'
+import { About } from './About'
 
 class App extends React.Component {
     state = {
@@ -42,14 +44,6 @@ class App extends React.Component {
             </div>
         );
     }
-}
-
-function Home() {
-    return <h2>Home</h2>;
-  }
-  
-function About(props) {
-    return <h2>About</h2>
 }
 
 export default App;
