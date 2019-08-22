@@ -49,7 +49,7 @@ As a minimal requirement you are expected to understand the basics of the concep
 
 ## Lecture 2
 
-* The JSX returned from a 
+* The JSX returned from a component needs to start at the same row as the return, however if we wrap our JSX in parenthesis we can return multiline JSX starting at the row below.
 * Array as well as Object destructuring are frequently seen and used in any React project, a typical use would be to break out the individual keys of the props-object specified in a components funktion definition. 
 * We can use the library material-ui to get get some functionality and styling for free when designing our app.
 * The library Axios is often used in order to send requests from our application.
