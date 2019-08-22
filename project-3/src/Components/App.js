@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import axios from 'axios';
 import Search from './Search'
 import { Nav } from './Nav'
-import { ListResources } from './ListResources';
+import ListResources from './ListResources';
 import { Home } from './Home'
 import { About } from './About'
 

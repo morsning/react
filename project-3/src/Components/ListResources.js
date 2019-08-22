@@ -1,10 +1,16 @@
 import React from 'react';
 
-export const ListResources = (props) => {
+class ListResources extends React.Component {
 
-    return (
-            <ul>
-                {props.beersList.map(value => (<li key={value.name}>{value.name}</li>))}
-            </ul>
-    )
+    state = {beers: ''}    
+    
+    render() {
+        return (
+                <ul>
+                    {this.props.beersList.map(value => (<li key={value.name}>{value.name}</li>))}
+                </ul>
+        );
+    }
 }
+
+export default ListResources;
