@@ -5,17 +5,6 @@ class ListResources extends React.Component {
 
     state = {beers: []}
 
-    componentDidMount() {
-        const getDataFromAPI = () => {
-            axios.get(`https://api.punkapi.com/v2/beers?beer_name=${this.props.searchTerm}`)
-            .then(res => {
-            console.log(res.data);
-            this.setState({beers: res.data});
-        })
-        }
-        getDataFromAPI();
-    }
-
     componentDidUpdate(prevProps) {
         if (prevProps.searchTerm !== this.props.searchTerm) {
             const getDataFromAPI = () => {
