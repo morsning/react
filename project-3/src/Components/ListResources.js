@@ -15,10 +15,9 @@ const ListResources = (props) => {
 
     useEffect(
         () => {
-            //getDataFromAPI();
-            setBeers(['sa']);
-            console.log("hej")
-        }
+            getDataFromAPI();
+        },
+        [props.searchTerm]
     );
         
     return (

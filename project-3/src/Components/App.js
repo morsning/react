@@ -11,7 +11,7 @@ class App extends React.Component {
         categorySelected : 0,
         selectedBeerName : '',
         beers: [],
-        searchTerm: 'punk'
+        searchTerm: ''
     }
     
     onCategoryChange = selectedCat => {
