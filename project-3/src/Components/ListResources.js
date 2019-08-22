@@ -1,31 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 
-class ListResources extends React.Component {
+const ListResources = (props) => {
 
-    state = {beers: []}
+    const [beers, setBeers] = useState([]);
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.searchTerm !== this.props.searchTerm) {
-            const getDataFromAPI = () => {
-                axios.get(`https://api.punkapi.com/v2/beers?beer_name=${this.props.searchTerm}`)
-                .then(res => {
-                console.log(res.data);
-                this.setState({beers: res.data});
-            })
-            }
-            getDataFromAPI();
-        }
+    const getDataFromAPI = () => {
+        axios.get(`https://api.punkapi.com/v2/beers?beer_name=${props.searchTerm}`)
+        .then(res => {
+            console.log(res.data);
+            setBeers(res.data);
+        })
     }
-    
-    render() {
 
-        return (
-                <ul>
-                    {this.state.beers.map(value => (<li key={value.name}>{value.name}</li>))}
-                </ul>
-        );
-    }
+    useEffect(
+        () => {
+            //getDataFromAPI();
+            console.log("hej")
+        },
+        []
+    );
+        
+    return (
+            <ul>
+                {beers.map(value => (<li key={value.name}>{value.name}</li>))}
+            </ul>
+    );
 }
 
 export default ListResources;
