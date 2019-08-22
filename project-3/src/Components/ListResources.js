@@ -15,6 +15,20 @@ class ListResources extends React.Component {
         }
         getDataFromAPI();
     }
+
+    componentDidUpdate(prevProps) {
+        
+            const getDataFromAPI = () => {
+                axios.get(`https://api.punkapi.com/v2/beers?beer_name=${this.props.searchTerm}`)
+                .then(res => {
+                console.log(res.data);
+                this.setState({beers: res.data});
+            })
+            }
+            this.setState({beers: ['loop']});
+            //getDataFromAPI();
+        
+    }
     
     render() {
 
