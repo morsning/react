@@ -76,3 +76,63 @@ Behind the scened we are creating an <a element with a modified behaviour alteri
 * The this keyword is tricky, avoiding scenarios where it ends up beeing undefined can be achieved through the use of arrow-functions.
 * In addition to the creation of the nav-bar in lecture 2 we define a function that is passed in to our search-component as a prop in order to once again alter the state of the parent from whithin the child.
 * In order to pass one or more props into a component where the component is rendered as a result of matching a certain navigation route we need to use the attribute: render
+
+# Deeper understanding
+
+This course is mainly focused on React, with that said we are required to have some knowledge about JavaScript and how it works. Developing a deeper understanding of how JavaScript works will help you write better code with less bugs and smarter solutions for a given problem.
+
+The code we have written so far has utilized a lot of features that are relatively new to JavaScript.
+The following will hopefully be somewhat familiar to you and has been used frequently throughout this first part of our course.
+
+* Template literals (Template strings)
+`string text ${expression} string text`
+
+* Classes
+class myComponent {
+constructor(props) {
+	super(props);
+	this.state = {someProperty: ‘somevalue’}
+  }
+}
+
+* Destructuring assignment (Array destructuring and Object destructuring)
+
+* Arrow functions () => { statements }
+
+All of the above was features of javascript was introduced in ECMAScript 2015.
+
+Knowing these features and understanding the terminology used to describe them will both give you a larger toolbox for solving problems but also help help you in finding solutions to a given problem.
+
+In addition to the newly added features of JavaScript mentioned above there’s a couple of other things we need to understand in order to write code behaving as we are expecting.
+
+## JavaScript datatypes
+
+in Javascript there are 8 data types, 7 of them are what we call primitive data types and 1 is not. The primitive data types behave a bit different than the remaining data type.
+The seven primitives all define what we refer to as immutable values the last one is mutable.
+
+The primitive data types:
+* Boolean,
+* Null,
+* Undefined,
+* Number,
+* BigInt,
+* String,
+* Symbol
+
+The remaining data type is not primitive and is the: 
+* Object
+
+When assigning a value of a primitive data type to a variable which we subsequently pass as an argument when calling some function we are passing this variable by value and not by reference. What this means is that the function being called gets the actual value of the variable we are passing in rather then the variable itself. Within the function the parameter assigned this value has no connection to the variable we passed in. Changing the value of this parameter will not affect the value of the variable used as argument in the function call.
+In contrast when we call a function passing a variable where the value is of the data type Object we are passing this object by reference. When altering the value of the parameter from inside of our function we are altering the value of the variable passed in.
+
+Values of a primitive data type are what we refer to as immutable values, immutable values cannot be changed in contrast to mutable values.
+Here is an example: if we assign a string to a variable we would be able to view a single character in the string though referencing the characters index, someWord[3]
+However if we attempt to change the value of character number 4 using following syntax: someWord[3] = ‘X’ the variable would still contain the exact same string. 
+A variable which contains a mutable value on the other hand can be modified.
+We can for instance change the value of a certain property on a JavaScript Object or add an element to an Array.
+
+When working with Redux and creating our reducers we need to avoid mutation. We do not want to mutate an object and return the altered version. We always want to return a completely new object unrelated to the previous one. Failing to follow this pattern will most likely result in undesired behavior.
+As an example mutating instead of returning a new object within some reducer can affect however a component re-renders or not. 
+Through avoiding mutations when altering state we are also avoiding possible side-effects that could emerge from changing a value in the reducer which affects all other references to the specific object across the application. 
+
+Since only Objects are mutable in contrast to our primitives we only need to think about this pattern when passing in Objects to our reducers, like Arrays or JavaScript Objects. In our reducer we want to return a new array or a new object and not an mutated version of the previous State.
