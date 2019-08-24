@@ -120,6 +120,12 @@ We use the property-names of the first Object (mapStateToProps) to access the cu
 
 * Discussion and examples (JavaScript data types, immutable vs mutable values)
 
+* Exercise
+1. In the project react with redux change the reducers to use the array push function instead of the spread operator and inspect the applications behaviour.
+2. Add functionality in the calculator component so that we can add any number
+3. Use Material UI to change the applications appearance
+4. Add functionality for clearing the history
+
 * On to TypeScript
 
 # Deeper understanding
