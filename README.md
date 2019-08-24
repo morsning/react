@@ -99,6 +99,10 @@ constructor(props) {
 
 * Arrow functions () => { statements }
 
+* The spread syntax: someFunction(...someArray)
+By using the spread syntax we can expand an array into arguments in a function call.
+It is also useful when we want to avoid mutation of an existing Object when changing some set of data representing state.
+
 All of the above was features of javascript was introduced in ECMAScript 2015.
 
 Knowing these features and understanding the terminology used to describe them will both give you a larger toolbox for solving problems but also help help you in finding solutions to a given problem.
