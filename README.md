@@ -77,6 +77,51 @@ Behind the scened we are creating an <a element with a modified behaviour alteri
 * In addition to the creation of the nav-bar in lecture 2 we define a function that is passed in to our search-component as a prop in order to once again alter the state of the parent from whithin the child.
 * In order to pass one or more props into a component where the component is rendered as a result of matching a certain navigation route we need to use the attribute: render
 
+## Lecture 4
+
+### Redux
+
+Redux is a standalone state management library, we are not limited to using it with React.
+
+When using Redux we use and alter state through a pattern that eliminates some of the bugs we often see in applications through limiting the possible side-effects arising when altering state.
+
+The application state is stored in a single object called the store. The store object is created through utilizing the redux function createStore and passing it our reducers. 
+
+Reducers are  functions we define which takes the previous partial state it governs as well as an action object as arguments, and depending on the state and the action passed in returns the new state. We typically create more than one reducer in our application, and divide our application state into separate sections. Each of these sections are individual leafs of our application state object where each leave is governed by a reducer.
+Changing the value of a particular section/leaf of our state object is controlled by logic within the reducer connected to that leaf.
+
+The createStore function used when creating our store object representing the applicaton state accepts only one reducer, sometimes referred to as the root-reducer. However since we are often dividing our state into separate sections through defining multiple reducers we need a way to make all of our individual reducers part of the same Object which we will be passing into the createStore function as an argument. 
+This is achieved through the use of redux combineReducers function. When calling this function we pass in a JavaScript Object where we define keys on this object corresponding to our individual reducers which will be the value of each of the keys in the Object.
+The key names of the resulting Object will be what we refer to as our applications individual state sections, where one reducer controls the value of that specific section of the entire state object.
+The result of calling the combineReducers functoin is passed in as an argument to the createStore function.
+
+As we mention above a reducer takes two arguments, the first one is the state and the second is an action object. Every time we want to change our state we achieve this through dispatching an action on the store Object. The action being dispatched gets passed in to all of our reducers that through their logic decides on however they are interested in that particular action. More precisely the action objects type properties value.
+All actions we want to dispatch should be an JavaScript with at least a type property and if we like a payload property.
+The values of the type and sometimes the payload properties of this action object will be used by our individual reducers in order to decide upon if and how to update some part of the state.
+
+We do not want to specify an action object, directly passing this to the dispatch function of the store Object, instead we want to use something referred to as action creators.
+These are functions we define that typically take arguments when being invoked and return a action object as a result of what we passed in.
+So instead of passing in an action Object directly we call an action creator which returns an action Object which is subsequently passed in as an argument when calling the dispatch function.
+
+### React-redux
+
+As mentioned above we can use the redux library by itself, however if we want to use it in our React application we typically use the react-redux library. 
+Through the use of this library we have access to a component called Provider , this component can be used to wrap the part of our application in which we want to access the application state object. Typically we wrap the entire App component. The provider component takes a prop called store, we  set this prop to be the result of calling the createStore function of redux passing in our reducers.
+Remember that the createStore only takes one root-reducer so when we say that we are passing in our reducers to the createStore function we are more specifically saying that we either pass in one reducer or the result of calling the combineReducers function of Redux.
+
+In addition to the Provider component used to wrap our application we also have access to a function called connect. We use this function in every component interesting in our application state. The connect function takes two arguments, the first is an Object specifying what part of the application state this specific component is interested in. The second argument is an Object specifying which actioncreators are relevant to this particular component.
+When passing in the first argument we typically create a function returning this Object rather than passing in the Object directly, this function is often named: mapStateToProps, but the name can be whatever you prefer.
+The keys of both the Objects we are passing in are then available as props inside our component.
+We use the property-names of the first Object (mapStateToProps) to access the current value of the pieces of the state they represent, and the property-names of the second Objcet (action creators we are interested in) to update the state, remember we never alter the state Object directly we use action creators instead.
+
+## Lecture 5
+
+26/8
+
+* Discussion and examples (JavaScript data types, immutable vs mutable values)
+
+* On to TypeScript
+
 # Deeper understanding
 
 This course is mainly focused on React, with that said we are required to have some knowledge about JavaScript and how it works. Developing a deeper understanding of how JavaScript works will help you write better code with less bugs and smarter solutions for a given problem.
