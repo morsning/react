@@ -135,8 +135,8 @@ However if we attempt to change the value of character number 4 using following 
 A variable which contains a mutable value on the other hand can be modified.
 We can for instance change the value of a certain property on a JavaScript Object or add an element to an Array.
 
-When working with Redux and creating our reducers we need to avoid mutation. We do not want to mutate an object and return the altered version. We always want to return a completely new object unrelated to the previous one. Failing to follow this pattern will most likely result in undesired behavior.
+**When working with Redux and creating our reducers we need to avoid mutation. We do not want to mutate an object and return the altered version. We always want to return a completely new object unrelated to the previous one. Failing to follow this pattern will most likely result in undesired behavior.**
 As an example mutating instead of returning a new object within some reducer can affect however a component re-renders or not. 
 Through avoiding mutations when altering state we are also avoiding possible side-effects that could emerge from changing a value in the reducer which affects all other references to the specific object across the application. 
 
-Since only Objects are mutable in contrast to our primitives we only need to think about this pattern when passing in Objects to our reducers, like Arrays or JavaScript Objects. In our reducer we want to return a new array or a new object and not an mutated version of the previous State.
+**Since only Objects are mutable in contrast to our primitives we only need to think about this pattern when passing in Objects to our reducers, like Arrays or JavaScript Objects.** In our reducer we want to return a new array or a new object and not an mutated version of the previous State.
